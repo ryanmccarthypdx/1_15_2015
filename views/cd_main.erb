@@ -1,0 +1,24 @@
+<h1>My CD Collection</h1>
+<br />
+<h3>List of my CDs:</h3>
+<br />
+
+<ol>
+  <% @list.each() do |cd| %>
+    <li><a href="/cd_select/<%= cd.id() %>"><%= cd.artist() %>     <%= cd.album %></a></li>
+    <% end %>
+</ol>
+
+<br />
+
+<h3>Input a new CD:</h3>
+<form action="/cd_post" method="post">
+  <label for="artist">Artist:</label>
+  <input id="artist" name="artist" type="text">
+
+  <label for="album">Album title:</label>
+  <input id="album" name="album" type="text">
+
+
+  <button type="submit" class="btn btn-success">Add to my list</button>
+</form>

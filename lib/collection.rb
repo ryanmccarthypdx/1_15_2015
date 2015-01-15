@@ -8,8 +8,14 @@ class CD
     @album = attribute.fetch(:album)
   end
 
+  define_method(:id) do
+    @id
+  end
+
   define_method(:save) do
     @@all_CDs.push(self)
+    @id = @@all_CDs.length()
+    self
   end
 
   define_singleton_method(:all) do
@@ -30,6 +36,15 @@ class CD
     @@all_CDs = []
   end
 
+  define_singleton_method(:select) do |selection|
+    output = nil
+    @@all_CDs.each() do |cd|
+      if cd.id().==(selection)
+        output = cd
+      end
+    end
+    output
+  end
 
 
 
