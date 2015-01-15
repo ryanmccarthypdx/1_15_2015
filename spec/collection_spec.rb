@@ -74,7 +74,7 @@ end
       expect(CD.select(3)).to(eq(nil))
     end
 
-    it("returns nothing if you select an ID that doesn't exist") do
+    it("returns the correct CD object") do
       test_cd1 = CD.new({ :artist => "Bob Dylan", :album => "Basement Tapes" })
       test_cd2 = CD.new({ :artist => "Bob Dylan", :album => "Highway 61" })
       test_cd1.save()
