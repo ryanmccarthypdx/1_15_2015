@@ -2,10 +2,10 @@
 <br />
 
 <ul>
-  <% @search_results.search() do |found_cd| %>
-    <% found_cd.each() do %>
-  <li><a href="/cd_select/<%= cd.id() %>"><%= found_cd.artist() %>, <%= found_cd.album %></a></li>
+  <% @search_results.each() do |found_cd| %>
 
-    <% end %>
+  <li><a href="/cd_select/<%= found_cd.id() %>"><%= found_cd.artist() %>, <%= found_cd.album %></a></li>
+
+
   <% end %>
 </ul>

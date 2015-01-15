@@ -36,9 +36,10 @@ end
 
 get("/cd_results") do
   @search_results = CD.search(params.fetch("search_term"))
-  @search_results.each() do |result|
-    @result_artist = @result.artist()
-    @result_album = @result.album()
-  end
+
+  # @search_results.each() do |result|
+  #   @result_artist = @result.artist()
+  #   @result_album = @result.album()
+  # end
   erb(:cd_results)
 end
