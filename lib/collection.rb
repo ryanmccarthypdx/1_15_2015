@@ -22,15 +22,27 @@ class CD
     @@all_CDs
   end
 
+  # define_singleton_method(:search) do |search_term|
+  #   output_array = []
+  #   @@all_CDs.each() do |cd|
+  #     if cd.artist().==(search_term) || cd.album().==(search_term)
+  #       output_array.push(cd)
+  #     end
+  #   end
+  #   output_array
+  # end
+
   define_singleton_method(:search) do |search_term|
     output_array = []
     @@all_CDs.each() do |cd|
-      if cd.artist().==(search_term) || cd.album().==(search_term)
+      if cd.artist().artist().==(search_term) || cd.artist().members().include?(search_term) || cd.album().==(search_term)
         output_array.push(cd)
       end
     end
     output_array
   end
+
+
 
   define_singleton_method(:clear) do
     @@all_CDs = []

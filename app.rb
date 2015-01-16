@@ -3,6 +3,7 @@ require('sinatra/reloader')
 also_reload('lib/**/*.rb')
 require('./lib/collection')
 require('pry')
+require('./lib/artist')
 
 
 get("/cds") do
@@ -12,7 +13,8 @@ get("/cds") do
 end
 
 post("/cd_post") do
-  @artist = params.fetch("artist")
+
+  @artist = { :artist => (params.fetch("artist")), :members => (params.fetch("members")) }
   @album = params.fetch("album")
   new_cd = CD.new({ :artist => @artist, :album => @album })
   new_cd.save()
