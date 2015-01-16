@@ -5,6 +5,7 @@ class Artist
     @artist = attributes.fetch(:artist)
     @members = attributes.fetch(:members)
   end
-
   
+
+
 end

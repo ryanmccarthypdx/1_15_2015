@@ -1,7 +1,7 @@
 <h3>More about <%= @album %></h3>
 
 <br />
-<p>Artist: <%= @artist %></p>
+<p>Artist: <%= @artist.artist() %> (Members: <%= @artist.artist().members().join(", ").to_s() %>)</p>
 <p>Album name: <%= @album %></p>
 <br />
 <a href='/cds'>Back to collection</a>

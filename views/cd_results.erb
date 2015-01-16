@@ -4,7 +4,7 @@
 <ul>
   <% @search_results.each() do |found_cd| %>
 
-  <li><a href="/cd_select/<%= found_cd.id() %>"><%= found_cd.artist() %>, <%= found_cd.album %></a></li>
+  <li><a href="/cd_select/<%= found_cd.id() %>"><%= found_cd.artist().artist() %> (Members: <%= found_cd.artist().members().join(", ").to_s() %>) <%= found_cd.album %></a></li>
 
 
   <% end %>

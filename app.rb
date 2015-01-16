@@ -13,8 +13,9 @@ get("/cds") do
 end
 
 post("/cd_post") do
-
-  @artist = { :artist => (params.fetch("artist")), :members => (params.fetch("members")) }
+  @band_name = params.fetch("artist")
+  @band_members = (params.fetch("members")).split(", ")
+  @artist = Artist.new({ :artist => @band_name, :members => @band_members })
   @album = params.fetch("album")
   new_cd = CD.new({ :artist => @artist, :album => @album })
   new_cd.save()
@@ -31,6 +32,7 @@ end
 get("/cd_select/:selection") do
   @selected = CD.select(params.fetch("selection").to_i())
   @artist = @selected.artist()
+  @members = @selected.artist().members().join(", ").to_s()
   @album = @selected.album()
   erb(:cd_info)
 end

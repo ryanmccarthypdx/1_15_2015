@@ -17,6 +17,9 @@
   <label for="artist">Artist:</label>
   <input id="artist" name="artist" type="text">
 
+  <label for="members">Band Members:</label>
+  <input id="members" name="members" type="text">
+
   <label for="album">Album title:</label>
   <input id="album" name="album" type="text">
 
@@ -30,6 +33,6 @@
 
 <ol>
   <% @list.each() do |cd| %>
-  <li><a href="/cd_select/<%= cd.id() %>"><%= cd.artist() %>, <%= cd.album %></a></li>
+    <li><a href="/cd_select/<%= cd.id() %>"><%= cd.artist().artist() %>, <%= cd.album() %></a></li>
   <% end %>
 </ol>
